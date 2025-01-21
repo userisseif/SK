@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Welcome to SK </title></title>
+<style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            text-align: center;
+
+            margin: 0;
+
+            padding: 50px;
+
+            background-color: #f4f4f4;
+
+        }
+ 
+        form {
+
+            display: inline-block;
+
+            text-align: left;
+
+            background-color: #fff;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        }
+ 
+        input, button {
+
+            display: block;
+
+            width: 100%;
+
+            margin-bottom: 10px;
+
+            padding: 10px;
+
+        }
+ 
+        button {
+
+            background-color: #4e44a7;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 5px;
+
+        }
+</style>
+ 
+    <!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+ 
+    <script>
+import { initializeApp } from "firebase/app";
+
+import { getAnalytics } from "firebase/analytics";
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyDTHp3rpx8cEjYiUCwB4k-TFbtptH_Um2E",
+
+  authDomain: "sk-jewllery.firebaseapp.com",
+
+  databaseURL: "https://sk-jewllery-default-rtdb.firebaseio.com",
+
+  projectId: "sk-jewllery",
+
+  storageBucket: "sk-jewllery.firebasestorage.app",
+
+  messagingSenderId: "448191635867",
+
+  appId: "1:448191635867:web:6ee33556209cad93f3813e",
+
+  measurementId: "G-TS7KWM5RV0"
+
+};
+
+
+
+
+const app = initializeApp(firebaseConfig);
+
+const analytics = getAnalytics(app);
+
+        
+        const database = firebase.database();
+ 
+        // Submit Form Data to Firebase
+
+        function submitContactForm(event) {
+
+            event.preventDefault(); // Prevent page reload
+
+            const name = document.getElementById('name').value;
+
+            const email = document.getElementById('email').value;
+
+            const message = document.getElementById('message').value;
+ 
+            database.ref('contacts').push({
+
+                name: name,
+
+                email: email,
+
+                message: message
+
+            })
+
+            .then(() => {
+
+                alert('Your message has been sent successfully!');
+
+                document.getElementById('contactForm').reset();
+
+            })
+
+            .catch((error) => {
+
+                alert('Error: ' + error.message);
+
+            });
+
+        }
+</script>
+</head>
+<body>
+<h1>Welcome To SK - Contact us</h1>
+<form id="contactForm" onsubmit="submitContactForm(event)">
+<input type="text" id="name" name="name" placeholder="Enter your name" required>
+<input type="email" id="email" name="email" placeholder="Enter your email" required>
+<input type="text" id="message" name="message" placeholder="Enter your message" required>
+<button type="submit">Submit</button>
+</form>
+</body>
+</html>
+
+ 
