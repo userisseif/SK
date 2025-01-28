@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - SK Jewelry</title>
+    <title>Contact Us - SK Jewelry</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
 </head>
 <body>
     <header>
@@ -13,52 +15,34 @@
             <img src="logo.png" alt="SK Jewelry Logo" class="logo">
             <nav>
                 <a href="index.html">Home</a>
-                <a href="about.html" class="active">About Us</a>
+                <a href="about.html">About Us</a>
                 <a href="shop.html">Shop</a>
-                <a href="contact.html">Contact Us</a>
+                <a href="contact.html" class="active">Contact Us</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="about-hero">
+        <section class="contact-hero">
             <div class="container">
-                <h1>About SK Jewelry</h1>
+                <h1>Contact SK Jewelry</h1>
             </div>
         </section>
 
-        <section class="about-content">
+        <section class="contact-content">
             <div class="container">
-                <img src="workshop.jpg" alt="SK Jewelry Workshop" class="about-image">
-                <div class="about-text">
-                    <h2>Our Story</h2>
-                    <p>SK Jewelry is a passionate artisan workshop based in Alexandria, Egypt. We specialize in creating unique, handcrafted jewelry inspired by the rich history and intricate designs of ancient Egyptian culture.</p>
-                    <p>Our founder, Sarah Kamel, started this journey with a deep love for both jewelry making and Egyptology. Combining these passions, she created SK Jewelry to bring the mystique and elegance of pharaonic designs to modern-day fashion enthusiasts.</p>
-                    <p>Each piece in our collection is meticulously crafted using traditional techniques and high-quality materials. We pride ourselves on attention to detail and historical accuracy, ensuring that every item tells a story from Egypt's glorious past.</p>
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Jewelry Lane, Alexandria, Egypt</p>
+                    <p><i class="fas fa-phone"></i> +20 123 456 7890</p>
+                    <p><i class="fas fa-envelope"></i> info@skjewelry.com</p>
                 </div>
-            </div>
-        </section>
-
-        <section class="team">
-            <div class="container">
-                <h2>Meet Our Team</h2>
-                <div class="team-members">
-                    <div class="team-member">
-                        <img src="sarah.jpg" alt="Sarah Kamel">
-                        <h3>Sarah Kamel</h3>
-                        <p>Founder & Lead Designer</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="ahmed.jpg" alt="Ahmed Hassan">
-                        <h3>Ahmed Hassan</h3>
-                        <p>Master Craftsman</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="nour.jpg" alt="Nour Abdel">
-                        <h3>Nour Abdel</h3>
-                        <p>Historian & Researcher</p>
-                    </div>
-                </div>
+                <form id="contactForm">
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
             </div>
         </section>
     </main>
@@ -73,5 +57,48 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDTHp3rpx8cEjYiUCwB4k-TFbtptH_Um2E",
+            authDomain: "sk-jewllery.firebaseapp.com",
+            databaseURL: "https://sk-jewllery-default-rtdb.firebaseio.com",
+            projectId: "sk-jewllery",
+            storageBucket: "sk-jewllery.firebasestorage.app",
+            messagingSenderId: "448191635867",
+            appId: "1:448191635867:web:6ee33556209cad93f3813e",
+            measurementId: "G-TS7KWM5RV0"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Get a reference to the database service
+        const database = firebase.database();
+
+        // Submit Form Data to Firebase
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            database.ref('contacts').push({
+                name: name,
+                email: email,
+                message: message
+            })
+            .then(() => {
+                alert('Your message has been sent successfully!');
+                document.getElementById('contactForm').reset();
+            })
+            .catch((error) => {
+                alert('Error: ' + error.message);
+            });
+        });
+    </script>
 </body>
 </html>
+
