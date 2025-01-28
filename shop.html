@@ -5,39 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop - SK Jewelry</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="SK Jewelry Logo" class="logo">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="shop.html">Shop</a>
-            <a href="contact.html">Contact Us</a>
-        </nav>
+        <div class="container">
+            <img src="logo.png" alt="SK Jewelry Logo" class="logo">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="shop.html" class="active">Shop</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <h1>Shop Our Collection</h1>
-        
-        <section class="product-grid">
-            <div class="product">
-                <img src="product1.jpg" alt="Necklace" class="product-image">
-                <h2>Pharaoh's Necklace</h2>
-                <p>Price: $199.99</p>
-                <button>Add to Cart</button>
+        <section class="shop-hero">
+            <div class="container">
+                <h1>Shop Our Collection</h1>
             </div>
-            <div class="product">
-                <img src="product2.jpg" alt="Bracelet" class="product-image">
-                <h2>Cleopatra's Bracelet</h2>
-                <p>Price: $149.99</p>
-                <button>Add to Cart</button>
+        </section>
+
+        <section class="product-grid">
+            <div class="container">
+                <div class="product">
+                    <img src="product1.jpg" alt="Pharaoh's Necklace" class="product-image">
+                    <h2>Pharaoh's Necklace</h2>
+                    <p class="price">$199.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="product2.jpg" alt="Cleopatra's Bracelet" class="product-image">
+                    <h2>Cleopatra's Bracelet</h2>
+                    <p class="price">$149.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="product3.jpg" alt="Ankh Earrings" class="product-image">
+                    <h2>Ankh Earrings</h2>
+                    <p class="price">$89.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="product4.jpg" alt="Scarab Ring" class="product-image">
+                    <h2>Scarab Ring</h2>
+                    <p class="price">$129.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 SK Jewelry. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 SK Jewelry. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
