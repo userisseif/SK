@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - SK Jewelry</title>
+    <title>About Us - SK Jewelry</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
 </head>
 <body>
     <header>
@@ -15,34 +13,42 @@
             <img src="logo.png" alt="SK Jewelry Logo" class="logo">
             <nav>
                 <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
+                <a href="about.html" class="active">About Us</a>
                 <a href="shop.html">Shop</a>
-                <a href="contact.html" class="active">Contact Us</a>
+                <a href="contact.html">Contact Us</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="contact-hero">
+        <section class="about-hero">
             <div class="container">
-                <h1>Contact SK Jewelry</h1>
+                <h1>About SK Jewelry</h1>
             </div>
         </section>
 
-        <section class="contact-content">
+        <section class="about-content">
             <div class="container">
-                <div class="contact-info">
-                    <h2>Get in Touch</h2>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Jewelry Lane, Alexandria, Egypt</p>
-                    <p><i class="fas fa-phone"></i> +20 123 456 7890</p>
-                    <p><i class="fas fa-envelope"></i> info@skjewelry.com</p>
-                </div>
-                <form id="contactForm">
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                    <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
+                <h2>Our Egyptian Heritage</h2>
+                <p>SK Jewelry is a brand deeply rooted in the rich cultural heritage of Egypt. As an Egyptian-owned company, we draw inspiration from the timeless beauty and intricate designs of ancient Egyptian jewelry, bringing a touch of pharaonic elegance to the modern world.</p>
+
+                <h2>Our Story</h2>
+                <p>Founded by an Egyptian entrepreneur with a passion for preserving and sharing the artistic legacy of our ancestors, SK Jewelry bridges the gap between ancient craftsmanship and contemporary style. Each piece in our collection tells a story, connecting our customers to the mystique and grandeur of Egypt's golden age.</p>
+
+                <h2>Our Inspiration</h2>
+                <p>From the sacred scarab beetles to the mesmerizing Eye of Horus, our designs incorporate iconic symbols and motifs that have fascinated the world for millennia. We use traditional techniques alongside modern manufacturing processes to create jewelry that is both authentic and accessible.</p>
+
+                <h2>Our Commitment</h2>
+                <p>At SK Jewelry, we are committed to:</p>
+                <ul>
+                    <li>Quality craftsmanship that honors our heritage</li>
+                    <li>Ethical sourcing of materials</li>
+                    <li>Supporting local artisans and preserving traditional skills</li>
+                    <li>Providing our customers with a piece of Egypt's eternal beauty</li>
+                </ul>
+
+                <h2>Visit Us</h2>
+                <p>Experience the allure of ancient Egypt through our stunning jewelry collection. Visit our store in Alexandria or explore our online shop to find your own piece of timeless Egyptian elegance.</p>
             </div>
         </section>
     </main>
@@ -57,48 +63,5 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // Your Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyDTHp3rpx8cEjYiUCwB4k-TFbtptH_Um2E",
-            authDomain: "sk-jewllery.firebaseapp.com",
-            databaseURL: "https://sk-jewllery-default-rtdb.firebaseio.com",
-            projectId: "sk-jewllery",
-            storageBucket: "sk-jewllery.firebasestorage.app",
-            messagingSenderId: "448191635867",
-            appId: "1:448191635867:web:6ee33556209cad93f3813e",
-            measurementId: "G-TS7KWM5RV0"
-        };
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
-        // Get a reference to the database service
-        const database = firebase.database();
-
-        // Submit Form Data to Firebase
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            database.ref('contacts').push({
-                name: name,
-                email: email,
-                message: message
-            })
-            .then(() => {
-                alert('Your message has been sent successfully!');
-                document.getElementById('contactForm').reset();
-            })
-            .catch((error) => {
-                alert('Error: ' + error.message);
-            });
-        });
-    </script>
 </body>
 </html>
-
