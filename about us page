@@ -5,33 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - SK Jewelry</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="SK Jewelry Logo" class="logo">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="shop.html">Shop</a>
-            <a href="contact.html">Contact Us</a>
-        </nav>
+        <div class="container">
+            <img src="logo.png" alt="SK Jewelry Logo" class="logo">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About Us</a>
+                <a href="shop.html">Shop</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <h1>About SK Jewelry</h1>
-        
+        <section class="about-hero">
+            <div class="container">
+                <h1>About SK Jewelry</h1>
+            </div>
+        </section>
+
         <section class="about-content">
-            <img src="workshop.jpg" alt="SK Jewelry Workshop" class="about-image">
-            <p>SK Jewelry is a passionate artisan workshop based in Alexandria, Egypt. We specialize in creating unique, handcrafted jewelry inspired by the rich history and intricate designs of ancient Egyptian culture.</p>
-            
-            <p>Our founder, Sarah Kamel, started this journey with a deep love for both jewelry making and Egyptology. Combining these passions, she created SK Jewelry to bring the mystique and elegance of pharaonic designs to modern-day fashion enthusiasts.</p>
-            
-            <p>Each piece in our collection is meticulously crafted using traditional techniques and high-quality materials. We pride ourselves on attention to detail and historical accuracy, ensuring that every item tells a story from Egypt's glorious past.</p>
+            <div class="container">
+                <img src="workshop.jpg" alt="SK Jewelry Workshop" class="about-image">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>SK Jewelry is a passionate artisan workshop based in Alexandria, Egypt. We specialize in creating unique, handcrafted jewelry inspired by the rich history and intricate designs of ancient Egyptian culture.</p>
+                    <p>Our founder, Sarah Kamel, started this journey with a deep love for both jewelry making and Egyptology. Combining these passions, she created SK Jewelry to bring the mystique and elegance of pharaonic designs to modern-day fashion enthusiasts.</p>
+                    <p>Each piece in our collection is meticulously crafted using traditional techniques and high-quality materials. We pride ourselves on attention to detail and historical accuracy, ensuring that every item tells a story from Egypt's glorious past.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="team">
+            <div class="container">
+                <h2>Meet Our Team</h2>
+                <div class="team-members">
+                    <div class="team-member">
+                        <img src="sarah.jpg" alt="Sarah Kamel">
+                        <h3>Sarah Kamel</h3>
+                        <p>Founder & Lead Designer</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="ahmed.jpg" alt="Ahmed Hassan">
+                        <h3>Ahmed Hassan</h3>
+                        <p>Master Craftsman</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="nour.jpg" alt="Nour Abdel">
+                        <h3>Nour Abdel</h3>
+                        <p>Historian & Researcher</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 SK Jewelry. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 SK Jewelry. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
